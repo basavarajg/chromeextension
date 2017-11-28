@@ -6,15 +6,26 @@
   "version": "1.0",
 
   "browser_action": {
-    "default_popup": "index.html"
+    "default_icon": "icon/icon16.png",
+    "default_popup": "html/popup.html"
   },
+
   "icons": {
-    "16": "logo/logo-1.png",
-    "64": "logo/logo-2.png"
+    "16":  "icon/icon16.png",
+    "48":  "icon/icon48.png",
+    "128": "icon/icon128.png"
   },
+
+  "background": {
+    "scripts": ["js/eventPage.js"],
+    "persistent": false
+  },
+
   "permissions": [
     "http://*/*",
     "https://*/*",
-    "tabs"
+    "tabs",
+    "storage",
+    "contextMenus"
   ]
 }
