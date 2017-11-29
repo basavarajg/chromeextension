@@ -2,7 +2,7 @@
   "manifest_version": 2,
 
   "name": "Codeweek Challenge",
-  "description": "This extension allows the user to create PID and eventually CID for the report sections.",
+  "description": "To get the HTML content of the selected area.",
   "version": "1.0",
 
   "browser_action": {
