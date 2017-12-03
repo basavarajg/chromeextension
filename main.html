@@ -6,12 +6,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/png" href="/img/logo_components_color_2x_web_48dp.png">
     <link rel="stylesheet" href="css/material-components-web.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-lite/1.1.0/material.min.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/dataTables.material.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Mono">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"> 
-     
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="css/aui.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/main2.css">
+    <link rel="stylesheet" href="css/main3.css">
+    <link rel="stylesheet" href="css/searchnow.css">
+    <link rel="stylesheet" href="css/yui3.css">
+    <link rel="stylesheet" href="css/yui3-1.css">
+    <link rel="stylesheet" href="css/yui3-2.css">
+
+    <script src="js/material-components-web.min.js"></script>
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css" />
+    <script src="//cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="js/popup.js"></script>
+
   </head>
   <body class="mdc-typography">
     <header class="mdc-toolbar mdc-toolbar--fixed">
@@ -64,108 +76,8 @@
       </nav>
     </aside>
     <main class="mdc-toolbar-fixed-adjust">
-      <table id="example" aling="left" class="mdl-data-table" cellspacing="0" width="100%">
-        <thead>
-            <tr>
-                <th>
-                  <a class="mdc-list-item" href="#">
-                    <i class="material-icons mdc-list-item__start-detail" aria-hidden="true">add</i>
-                    <i class="material-icons mdc-list-item__start-detail" aria-hidden="true">clear</i>
-                  </a>
-                </th>
-                <th><a class="mdc-list-item" href="#">ID</a></th>
-                <th><a class="mdc-list-item" href="#">Content</a></th>
-                <th><a class="mdc-list-item" href="#">Created By</a></th>
-                <th><a class="mdc-list-item" href="#">Created Time</a></th>
-                <th><a class="mdc-list-item" href="#">Email</a></th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>
-                  <a class="mdc-list-item" href="#">
-                    <i class="material-icons mdc-list-item__start-detail" aria-hidden="true">add</i>
-                  </a>
-                </td>
-                <td><p class="mdc-list-item">1232123</p></td>
-                <td><p class="mdc-list-item">System Architect</p></td>
-                <td><p class="mdc-list-item">Tiger Nixon</p></td>
-                <td><p class="mdc-list-item">Dec 1, 2017</p></td>
-                <td>
-                  <a class="mdc-list-item" href="#">
-                    <i class="material-icons mdc-list-item__start-detail" aria-hidden="true">email</i>
-                  </a>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                  <a class="mdc-list-item" href="#">
-                    <i class="material-icons mdc-list-item__start-detail" aria-hidden="true">clear</i>
-                  </a>
-                </td>
-                <td><p class="mdc-list-item">12323</p></td>
-                <td><p class="mdc-list-item">Accountant</p></td>
-                <td><p class="mdc-list-item">Garrett Winters</p></td>
-                <td><p class="mdc-list-item">Dec 1, 2017</p></td>
-                <td>
-                  <a class="mdc-list-item" href="#">
-                    <i class="material-icons mdc-list-item__start-detail" aria-hidden="true">email</i>
-                  </a>
-                </td>
-            </tr>
-        </tbody>
+      <table id="dataTable" width="100%">
     </table>
     </main>
-    <script src="js/material-components-web.min.js"></script>
-    <script src="js/jquery-3.2.1.min.js"></script>
-    <script>
-      (function() {
-        'use strict';
-        function getAll(query) {
-          return [].slice.call(document.querySelectorAll(query));
-        }
-        function matches(elem, selector) {
-          var nativeMatches = elem.matches || elem.webkitMatchesSelector || elem.mozMatchesSelector || elem.msMatchesSelector || elem.oMatchesSelector;
-          return nativeMatches.call(elem, selector);
-        }
-        function closest(elem, selector) {
-          while (elem) {
-            if (matches(elem, selector)) {
-              return elem;
-            }
-            elem = elem.parentElement;
-          }
-          return null;
-        }
-
-        //ajax call to get windows logged in user name
-        $.ajax({
-          url: "/getUserName", 
-          success: function(result) {
-            $("#username").html('Hello, ' + result.toUpperCase());
-          }
-        });
-        /*
-        * Drawer
-        */
-        var drawerEl = document.querySelector('.mdc-temporary-drawer');
-        var drawer = new mdc.drawer.MDCTemporaryDrawer(drawerEl);
-        getAll('.demo-drawer-toggle').forEach(function(toggleElem) {
-          toggleElem.addEventListener('click', function() {
-            drawer.open = true;
-          });
-        });
-        drawerEl.addEventListener('MDCTemporaryDrawer:open', function() {
-          //console.log('Received MDCTemporaryDrawer:open');
-        });
-        drawerEl.addEventListener('MDCTemporaryDrawer:close', function() {
-          //console.log('Received MDCTemporaryDrawer:close');
-        });
-
-        $('#example').DataTable({
-        });
-
-      })();
-    </script>
   </body>
-</html> 
+</html>
